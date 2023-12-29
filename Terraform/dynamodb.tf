@@ -1,3 +1,4 @@
+##create dynamodb table for each event
 resource "aws_dynamodb_table" "delivery" {
   name           = "Delivery"
   billing_mode   = "PROVISIONED"
