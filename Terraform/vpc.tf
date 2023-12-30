@@ -14,7 +14,7 @@ resource "aws_subnet" "subnet_events" {
     }
 }
 
-
+#I'm thinking if I will use yet this subnet....
 resource "aws_subnet" "new_subnet_database" {
   availability_zone = "us-east-1b"
   vpc_id     = aws_vpc.vpc_events.id

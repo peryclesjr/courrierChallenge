@@ -1,6 +1,7 @@
 data "aws_vpc" "default" {
-  default = true
+  id = "vpc-098ab5730f13ebf8b"
 }
+
 
 data "aws_subnets" "default_subnets" {
   filter {
@@ -23,21 +24,21 @@ resource "aws_mq_broker" "my_broker" {
   }
 
   apply_immediately = true
-  publicly_accessible = false
+  publicly_accessible = true  #It was false, but I changed it to true to test it.
   deployment_mode = "SINGLE_INSTANCE"
   subnet_ids = [tolist(data.aws_subnets.default_subnets.ids)[0]]
-  security_groups = [aws_security_group.mq_sg.id]
+#  security_groups = [aws_security_group.mq_sg.id]
 }
 
-resource "aws_security_group" "mq_sg" {
-  name        = "mq_security_group"
-  description = "Security group for AmazonMQ broker"
-  vpc_id      = data.aws_vpc.default.id
-
-  ingress {
-    from_port   = 5671  # Default port for RabbitMQ with SSL
-    to_port     = 5671
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-}
+#resource "aws_security_group" "mq_sg" {
+#  name        = "mq_security_group"
+#  description = "Security group for AmazonMQ broker"
+#  vpc_id      = data.aws_vpc.default.id
+#
+#  ingress {
+#    from_port   = 5671  # Default port for RabbitMQ with TLS
+#    to_port     = 5671
+#    protocol    = "tcp"
+#    cidr_blocks = ["0.0.0.0/0"]
+#  }
+#}
