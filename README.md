@@ -48,6 +48,22 @@ The infrastructure is composed by:
     ``` mvn spring-boot:run ```
  - The project is running in the port 8089.
 
+## Courrier Statement
+  I created this project to expose the information saved in DynamoDB. 
+Using the rest APIS.This project uses Spring Boot and AWS SDK.
+[CourrierStatement](https://github.com/peryclesjr/courrierStatement)
+- To run the project you need to configure the application.properties with the information of your AmazonMQ.
+ - The project is a maven project and you need to run the following command in terminal:
+    ``` gradle clean build ```
+ - To run the project you need to run the following command in terminal:
+    ``` gradle bootRun ```
+ - The project is running in the port 8090.
+ - The project has 2 endpoints:
+    - /complete-statement
+    - /summarize-statement    
+
+
+
 
 ## Design System 
 ![image](https://github.com/peryclesjr/courrierChallenge/blob/main/skipthedishes_courrierChallenge%20(1).jpg)
