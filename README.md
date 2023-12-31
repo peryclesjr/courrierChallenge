@@ -11,16 +11,42 @@ The infrastructure is composed by:
 - Next steps are creating IaC for:
       ALB, Application Load Ballancer,
       ASG, Auto Scale Group.
+- To run de terraform scripts you need to install the terraform in your machine and configure the AWS CLI.
+- To run the scripts you need to run the following commands:
+``` terraform init ```
+``` terraform plan ```
+``` terraform apply ```
+- To destroy the infrastructure you need to run the following command:
+``` terraform destroy ```
+- The scripts are in the folder terraform.
+- To connect to amazon you need to create a user in IAM and configure the AWS CLI.
+- To connect to AmazonMQ you need to create a user in IAM and configure the AWS CLI.
+- To connect to DynamoDB you need to create a user in IAM and configure the AWS CLI.
 
 ## Publisher
   I created a little project using springboot to populate the three queues in AmazonMQ. 
   Each queue is for a event Delivery, Adjustment and Bonus.
   [courrierPublisher](https://github.com/peryclesjr/courrierPublisher)
+  - To run the project you need to configure the application.properties with the information of your AmazonMQ.
+    - The project is a maven project and you need to run the following command in terminal:
+    ``` mvn clean install ```
+  - To run the project you need to run the following command in terminal:
+    ``` mvn spring-boot:run ```
+  - The project is running in the port 8080.
+  - The project has 1 endpoints:
+    - /delivery
+ 
 
 ## Consumer Courrier Message
   I created this project to show how to consume a queue in AmazonMq using the RabbitMQ engine 
   and then saving the information in AWS DynamoDB. This project uses Spring Boot and AWS SDK.
 [ConsumerCourrierMessage](https://github.com/peryclesjr/consumerCourrierMessages)
+ - To run the project you need to configure the application.properties with the information of your AmazonMQ.
+ - The project is a maven project and you need to run the following command in terminal:
+    ``` mvn clean install ```
+ - To run the project you need to run the following command in terminal:
+    ``` mvn spring-boot:run ```
+ - The project is running in the port 8089.
 
 
 ## Design System 
