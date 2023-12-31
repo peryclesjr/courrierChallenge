@@ -7,6 +7,8 @@ I created some scripts using Terraform to provide a minimum infrastructure in AW
 The infrastructure is composed by:
 - AmazonMQ. It is a managed message broker service for RabbitMQ at the Cloud.
 - DynamoDB: I selected this database for the facility to use. It's managed by AWS and is a free tier.
+- VPC: I use the terraform to create VPC, Secutiry Group, and Subnet.
+- Next steps are creating IaC for ALB.
 
 ## Publisher
   I created a little project using springboot to populate the three queues in AmazonMQ. 
